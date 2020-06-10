@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:utils="clr-namespace:TuEnvio.Utils"   
+             xmlns:controls="clr-namespace:TuEnvio.Controls"   
+             mc:Ignorable="d"
+             x:Class="TuEnvio.Pages.Main">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout >
+                <controls:MyCustomWebView x:Name="webview"  Source="https://www.tuenvio.cu/carlos3/"/>
+            </StackLayout>
+            <Button x:Name="refresh" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".85,.95,50,50" Text="{x:Static utils:MaterialIcons.Refresh}" Style="{StaticResource floatingButton}" Clicked="refresh_Clicked"/>
+            <Button x:Name="share" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.95,50,50" Text="{x:Static utils:MaterialIcons.Share}" Style="{StaticResource floatingButton}" Clicked="share_Clicked"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
