@@ -6,15 +6,14 @@ using Xamarin.Forms;
 
 namespace TuEnvio.Controls
 {
-    class MyCustomWebView : WebView
+    public class MyCustomWebView : WebView
     {
 
         protected override void OnPropertyChanged(string propertyName)
         {
-            if (propertyName.Equals("Renderer")) {
+            if (propertyName.Equals("Source")) {
                 WidthRequest = UtilsXF.GetScreenWidth();
                 HeightRequest = UtilsXF.GetScreenHeight();
-
             }
         }
     }

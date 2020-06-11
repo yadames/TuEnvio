@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:utils="clr-namespace:TuEnvio.Utils"   
              xmlns:controls="clr-namespace:TuEnvio.Controls"   
+             xmlns:views="clr-namespace:TuEnvio.Views"     
              mc:Ignorable="d"
              x:Class="TuEnvio.Pages.Main">
     <ContentPage.Content>
@@ -12,8 +13,8 @@
             <StackLayout >
                 <controls:MyCustomWebView x:Name="webview"  Source="https://www.tuenvio.cu/carlos3/"/>
             </StackLayout>
-            <Button x:Name="refresh" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".85,.95,50,50" Text="{x:Static utils:MaterialIcons.Refresh}" Style="{StaticResource floatingButton}" Clicked="refresh_Clicked"/>
-            <Button x:Name="share" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.95,50,50" Text="{x:Static utils:MaterialIcons.Share}" Style="{StaticResource floatingButton}" Clicked="share_Clicked"/>
+            
+            <views:FloatingActionButton AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.85" />
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -28,5 +28,11 @@ namespace TuEnvio
         protected override void OnResume()
         {
         }
+
+        public static void ManageLink(string url) 
+        {
+            MainTab tabbedPage = HostApp.MainPage as MainTab;
+            tabbedPage.OpenUrl(url);
+        }
     }
 }

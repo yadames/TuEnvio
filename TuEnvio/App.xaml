@@ -14,10 +14,12 @@
 
         <Style x:Key="floatingButton" TargetType="Button">
             <Setter Property="FontFamily" Value="{StaticResource MaterialFontFamily}"/>
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontSize" Value="32"/>
             <Setter Property="TextColor" Value="White"/>
-            <Setter Property="CornerRadius" Value="25"/>
-            <Setter Property="BackgroundColor" Value="IndianRed"/>
+            <Setter Property="CornerRadius" Value="30"/>
+            <Setter Property="BackgroundColor" Value="#D44141"/>
+            <Setter Property="WidthRequest" Value="60"/>
+            <Setter Property="HeightRequest" Value="60"/>
         </Style>
     </Application.Resources>
 </Application>

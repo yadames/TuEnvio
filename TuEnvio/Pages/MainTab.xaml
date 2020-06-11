@@ -5,54 +5,46 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:utils="clr-namespace:TuEnvio.Utils"
              xmlns:controls="clr-namespace:TuEnvio.Controls"     
+             xmlns:views="clr-namespace:TuEnvio.Views"  
              mc:Ignorable="d"
              x:Class="TuEnvio.Pages.MainTab"
+            Visual="Material"
             >
   <!--Pages can be added as references or inline-->
-        
     <ContentPage Title="CarlosIII">
         <AbsoluteLayout>
             <StackLayout >
-                <controls:MyCustomWebView Source="https://dmascotas.info/" />
+                <controls:MyCustomWebView Source="https://www.tuenvio.cu/carlos3/" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
             </StackLayout>
-            <Button AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".80,.95,50,50" Text="{x:Static utils:MaterialIcons.Refresh}" Style="{StaticResource floatingButton}" Clicked="refresh_Clicked"/>
-            <Button AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.95,50,50" Text="{x:Static utils:MaterialIcons.Share}" Style="{StaticResource floatingButton}" Clicked="share_Clicked"/>
+            <Button Text="{x:Static utils:MaterialIcons.Menu}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.95,60,60" Style="{StaticResource floatingButton}" Clicked="menu_Clicked"/>
+            <views:FloatingActionButton AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.80" WidthRequest="300"/>
         </AbsoluteLayout>
     </ContentPage>
-    <ContentPage Title="4tro Caminos">
+    <ContentPage Title="4Caminos">
         <AbsoluteLayout>
             <StackLayout >
-                <controls:MyCustomWebView Source="https://dmascotas.info/"/>
+                <controls:MyCustomWebView Source="https://www.tuenvio.cu/4caminos/" />
             </StackLayout>
-            <Button AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".80,.95,50,50" Text="{x:Static utils:MaterialIcons.Refresh}" Style="{StaticResource floatingButton}" Clicked="refresh_Clicked"/>
-            <Button AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.95,50,50" Text="{x:Static utils:MaterialIcons.Share}" Style="{StaticResource floatingButton}" Clicked="share_Clicked"/>
+            <Button Text="{x:Static utils:MaterialIcons.Menu}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.95,60,60" Style="{StaticResource floatingButton}" Clicked="menu_Clicked"/>
+            <views:FloatingActionButton AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.80" WidthRequest="300"/>
         </AbsoluteLayout>
     </ContentPage>
     <ContentPage Title="Pedregal" >
         <AbsoluteLayout>
             <StackLayout >
-                <controls:MyCustomWebView Source="https://dmascotas.info/"/>
+                <controls:MyCustomWebView Source="https://www.tuenvio.cu/tvpedregal/"/>
             </StackLayout>
-            <Button AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".80,.95,50,50" Text="{x:Static utils:MaterialIcons.Refresh}" Style="{StaticResource floatingButton}" Clicked="refresh_Clicked"/>
-            <Button AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.95,50,50" Text="{x:Static utils:MaterialIcons.Share}" Style="{StaticResource floatingButton}" Clicked="share_Clicked"/>
-        </AbsoluteLayout>
-    </ContentPage>
-    <ContentPage Title="Villa Diana">
-        <AbsoluteLayout>
-            <StackLayout >
-                <controls:MyCustomWebView Source="https://dmascotas.info/"/>
-            </StackLayout>
-            <Button AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".80,.95,50,50" Text="{x:Static utils:MaterialIcons.Refresh}" Style="{StaticResource floatingButton}" Clicked="refresh_Clicked"/>
-            <Button AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.95,50,50" Text="{x:Static utils:MaterialIcons.Share}" Style="{StaticResource floatingButton}" Clicked="share_Clicked"/>
+            <Button Text="{x:Static utils:MaterialIcons.Menu}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.95,60,60" Style="{StaticResource floatingButton}" Clicked="menu_Clicked"/>
+            <views:FloatingActionButton AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.80" WidthRequest="300"/>
         </AbsoluteLayout>
     </ContentPage>
     <ContentPage Title="La Típica" >
         <AbsoluteLayout>
             <StackLayout >
-                <controls:MyCustomWebView Source="https://dmascotas.info/"/>
+                <controls:MyCustomWebView Source="https://www.tuenvio.cu/tipicaboyeros/"/>
             </StackLayout>
-            <Button AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".80,.95,50,50" Text="{x:Static utils:MaterialIcons.Refresh}" Style="{StaticResource floatingButton}" Clicked="refresh_Clicked"/>
-            <Button AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.95,50,50" Text="{x:Static utils:MaterialIcons.Share}" Style="{StaticResource floatingButton}" Clicked="share_Clicked"/>
+            <Button Text="{x:Static utils:MaterialIcons.Menu}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.95,60,60" Style="{StaticResource floatingButton}" Clicked="menu_Clicked"/>
+            <views:FloatingActionButton AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.80" WidthRequest="300"/>
         </AbsoluteLayout>
     </ContentPage>
 </TabbedPage>
