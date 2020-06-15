@@ -27,12 +27,7 @@ namespace TuEnvio.Droid.Renderers
             if (e.NewElement != null)
             {
                 Control.Settings.JavaScriptEnabled = true;
-                //if (Control == null)
-                //{
-                //    Control.Settings.JavaScriptEnabled = true;
-
-                //}
-
+                Control.Settings.CacheMode = Android.Webkit.CacheModes.Normal;
             }
         }
     }

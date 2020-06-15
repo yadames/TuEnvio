@@ -19,12 +19,12 @@ namespace TuEnvio.Views
             InitializeComponent();
         }
 
-        private void search_click(object sender, EventArgs e) 
+        private async void search_click(object sender, EventArgs e) 
         {
 
             MainTab tabbedPage = App.HostApp.MainPage as MainTab;
 
-            tabbedPage.FindInAllTabs(search_entry.Text);
+            await tabbedPage.DoActionAsync(2, search_entry.Text);
 
             IsVisible = false;
         }
@@ -35,9 +35,9 @@ namespace TuEnvio.Views
             tabbedPage.ShareLinkAsync();
         }
 
-        private void refresh_click(object sender, EventArgs e) {
+        private async void refresh_click(object sender, EventArgs e) {
             MainTab tabbedPage = App.HostApp.MainPage as MainTab;
-            tabbedPage.RefreshAll();
+            await tabbedPage.DoActionAsync(1);
         }
 
         private void open_click(object sender, EventArgs e)

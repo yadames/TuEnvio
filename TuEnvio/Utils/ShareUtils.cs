@@ -12,7 +12,7 @@ namespace TuEnvio.Utils
         {
             await Share.RequestAsync(new ShareTextRequest
             {
-                Text = $"#alerta (Desde TuEnvioApp) {producto} {url}",
+                Text = $"#alerta (Desde TuEnvioApp){producto} {url}",
                 Title = "Compartir enlace de TuEnvio.cu"
             });
         }

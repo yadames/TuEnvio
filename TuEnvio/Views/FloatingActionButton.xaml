@@ -24,10 +24,6 @@
                     <Label Text="Refrescar todo" HorizontalOptions="EndAndExpand" VerticalOptions="Center" FontSize="Medium"/>
                     <Button  Text="{x:Static utils:MaterialIcons.Refresh}" Style="{StaticResource floatingButton}" Clicked="refresh_click" HorizontalOptions="End"/>
                 </StackLayout>
-                <!--<StackLayout Orientation="Horizontal">
-                    <controls:CustomPicker Title="Seleccione el departamento" HorizontalOptions="FillAndExpand"></controls:CustomPicker>
-                    <Button  Text="{x:Static utils:MaterialIcons.SearchWeb}" Style="{StaticResource floatingButton}"/>
-                </StackLayout>-->
             </StackLayout>
         </controls:CustomFrame>
     </ContentView.Content>

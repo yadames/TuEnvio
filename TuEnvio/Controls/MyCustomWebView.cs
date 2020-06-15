@@ -22,15 +22,6 @@ namespace TuEnvio.Controls
             if (propertyName.Equals("Source")) {
                 WidthRequest = UtilsXF.GetScreenWidth();
                 HeightRequest = UtilsXF.GetScreenHeight() - AdsHeight;
-                //try
-                //{
-                //    Title = await EvaluateJavaScriptAsync("document.title;");
-                //}
-                //catch (Exception)
-                //{
-
-                //}
-                
             }
         }
     }

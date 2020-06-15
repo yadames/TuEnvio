@@ -70,7 +70,7 @@
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderers\AdMobRenderer.cs" />
-    <Compile Include="Renderers\Class1.cs" />
+    <Compile Include="Renderers\MyCustomWebViewRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

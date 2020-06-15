@@ -34,20 +34,24 @@ namespace TuEnvio.Pages
             InitializeComponent();
         }
 
-        private async Task<string> GetTitle()
+        private AbsoluteLayout GetCurrentAbsoluteLayout()
         {
-            //return await WebView.EvaluateJavaScriptAsync("$(document).find('title').text();");
-            return await WebView.EvaluateJavaScriptAsync("document.title;");
+            return (CurrentPage as ContentPage).Content as AbsoluteLayout;
         }
 
-        private void refresh_Clicked(object sender, EventArgs e)
+        private MyCustomWebView GetCurrentWebView()
         {
-            WebView.WidthRequest = UtilsXF.GetScreenWidth();
-            WebView.HeightRequest = UtilsXF.GetScreenHeight();
-            WebView.Reload();
+            AbsoluteLayout absoluteLayout = GetCurrentAbsoluteLayout();
+            return (absoluteLayout.Children[0] as StackLayout).Children[0] as MyCustomWebView;
         }
 
-        private void menu_Clicked(object sender, EventArgs e) 
+        private FloatingActionButton GetCurrentFloatingButton()
+        {
+            AbsoluteLayout absoluteLayout = GetCurrentAbsoluteLayout();
+            return absoluteLayout.Children[2] as FloatingActionButton;
+        }
+
+        private void menu_Clicked(object sender, EventArgs e)
         {
             floatingActionButton.IsVisible = !floatingActionButton.IsVisible;
         }
@@ -56,14 +60,10 @@ namespace TuEnvio.Pages
         {
             try
             {
-                AbsoluteLayout absoluteLayout = (CurrentPage as ContentPage).Content as AbsoluteLayout;
-
-                MyCustomWebView currentWebView = (absoluteLayout.Children[0] as StackLayout).Children[0] as MyCustomWebView;
+                MyCustomWebView currentWebView = GetCurrentWebView();
 
                 string title = await currentWebView.EvaluateJavaScriptAsync("document.title;");
-                //string[] line = title.Split(new[] { "\\r\\n", "\\r", "\\n" }, StringSplitOptions.None);
                 string lite = UtilsXF.RemoveSpecialCharacters(title.Substring(title.LastIndexOf(" - ")));
-                //string formatTitle = UtilsXF.RemoveSpecialCharacters(line[4]).Trim();
 
                 _ = ShareUtils.ShareText(lite, ((UrlWebViewSource)WebView.Source).Url);
             }
@@ -71,20 +71,17 @@ namespace TuEnvio.Pages
             {
                 _ = ShareUtils.ShareText("", ((UrlWebViewSource)WebView.Source).Url);
             }
-            
+
         }
 
         protected override void OnCurrentPageChanged()
         {
             base.OnCurrentPageChanged();
-            try {
+            try
+            {
 
-                AbsoluteLayout absoluteLayout = (CurrentPage as ContentPage).Content as AbsoluteLayout;
-
-                WebView = (absoluteLayout.Children[0] as StackLayout).Children[0] as MyCustomWebView;
-                floatingActionButton = absoluteLayout.Children[2] as FloatingActionButton;
-
-                //WebView.floatingActionButton = floatingActionButton;
+                WebView = GetCurrentWebView();
+                floatingActionButton = GetCurrentFloatingButton();
 
                 WebView.Focused -= WebView_Focused;
                 WebView.Focused += WebView_Focused;
@@ -93,7 +90,7 @@ namespace TuEnvio.Pages
                 WebView.Navigating += WebView_Navigating;
 
             }
-            catch (Exception e) {}
+            catch (Exception e) { }
         }
 
         private void WebView_Focused(object sender, FocusEventArgs e)
@@ -115,49 +112,103 @@ namespace TuEnvio.Pages
             }
         }
 
-        public void RefreshAll()
+        public async Task DoActionAsync(int action, string query = null)
         {
             int i = 0;
+            int timeToDelay = 500;
+            floatingActionButton.IsVisible = false;
             foreach (ContentPage page in Children)
             {
-                MyCustomWebView webview = ((page.Content as AbsoluteLayout).Children[0] as StackLayout).Children[0] as MyCustomWebView;
+                switch (action)
+                {
+                    case 1: //Refresh
+                        RefreshCurrentWebView(page);
+                        break;
+                    case 2: //Find
+                        string newUrl = URL_DOMAIN + SHOP[i] + URL_SEARCH + '"' + query + '"';
+                        FindInCurrentTab(page, newUrl);
+                        break;
+                    case 3: //UpdateWebViewSize
+                        timeToDelay = 0;
+                        UpdateWebViewSize(page);
+                        break;
+                }
 
-                webview.Reload();
+                Task.Delay(timeToDelay).Wait();
                 i++;
             }
         }
 
-        public void RefreshAllTabs(string url = null) 
+        public void RefreshCurrentWebView(ContentPage page)
         {
-            int i = 0;
-            foreach (ContentPage page in Children) { 
-                MyCustomWebView webview = ((page.Content as AbsoluteLayout).Children[0] as StackLayout).Children[0] as MyCustomWebView;
-
-                string newUrl = url.Replace(CARLOSIII, SHOP[i]).Replace(CUATRO_CAMINOS, SHOP[i]).Replace(PEDREGAL, SHOP[i]).Replace(TIPICA, SHOP[i]);
-                webview.Source = newUrl;
-                i++;
-            }
+            MyCustomWebView webview = ((page.Content as AbsoluteLayout).Children[0] as StackLayout).Children[0] as MyCustomWebView;
+            webview.Reload();
         }
 
-
-        public void FindInAllTabs(string query)
+        public void FindInCurrentTab(ContentPage page, string newUrl)
         {
-            int i = 0;
-            foreach (ContentPage page in Children)
+            MyCustomWebView webview = ((page.Content as AbsoluteLayout).Children[0] as StackLayout).Children[0] as MyCustomWebView;
+            UpdateWebView(webview.Parent as StackLayout, new UrlWebViewSource { Url = newUrl });
+            WebView = webview;
+        }
+        public MyCustomWebView UpdateWebView(StackLayout container, UrlWebViewSource newURL)
+        {
+
+            MyCustomWebView webView = new MyCustomWebView
             {
-                MyCustomWebView webview = ((page.Content as AbsoluteLayout).Children[0] as StackLayout).Children[0] as MyCustomWebView;
+                Source = newURL,
+                AdsHeight = AdsHeight,
+                Title = WebView.Title
+            };
+            container.Children.Clear();
+            container.Children.Add(webView);
+            container.Children.Add(new AdmobControl()
+            {
+                AdUnitId = "ca-app-pub-2807998494224675/5950558114",
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Margin = 0
+            });
 
-                string newUrl = URL_DOMAIN + SHOP[i] + URL_SEARCH + '"' + query + '"';
-
-                UpdateWebView(webview.Parent as StackLayout, new UrlWebViewSource { Url = newUrl });
-                WebView = webview;
-                i++;
-            }
+            return webView;
         }
 
-        public void OpenUrl(string url) 
+
+
+
+
+
+        //public void RefreshAllTabs(string url = null)
+        //{
+        //    int i = 0;
+        //    foreach (ContentPage page in Children)
+        //    {
+        //        MyCustomWebView webview = ((page.Content as AbsoluteLayout).Children[0] as StackLayout).Children[0] as MyCustomWebView;
+
+        //        string newUrl = url.Replace(CARLOSIII, SHOP[i]).Replace(CUATRO_CAMINOS, SHOP[i]).Replace(PEDREGAL, SHOP[i]).Replace(TIPICA, SHOP[i]);
+        //        webview.Source = newUrl;
+        //        i++;
+        //    }
+        //}
+
+
+        //public void FindInAllTabs(string query)
+        //{
+        //    int i = 0;
+        //    foreach (ContentPage page in Children)
+        //    {
+        //        MyCustomWebView webview = ((page.Content as AbsoluteLayout).Children[0] as StackLayout).Children[0] as MyCustomWebView;
+
+        //        string newUrl = URL_DOMAIN + SHOP[i] + URL_SEARCH + '"' + query + '"';
+
+        //        UpdateWebView(webview.Parent as StackLayout, new UrlWebViewSource { Url = newUrl });
+        //        WebView = webview;
+        //        i++;
+        //    }
+        //}
+
+        public void OpenUrl(string url)
         {
-            if (url.Contains(CARLOSIII)) 
+            if (url.Contains(CARLOSIII))
             {
                 NavigateToTabIndex(0);
             }
@@ -182,24 +233,7 @@ namespace TuEnvio.Pages
             CurrentPage = Children[index];
         }
 
-        public MyCustomWebView UpdateWebView(StackLayout container, UrlWebViewSource newURL) {
 
-            MyCustomWebView webView = new MyCustomWebView
-            {
-                Source = newURL,
-                AdsHeight = AdsHeight,
-                Title = WebView.Title
-            };
-            container.Children.Clear();
-            container.Children.Add(webView);
-            container.Children.Add(new AdmobControl() { 
-                AdUnitId = "ca-app-pub-2807998494224675/5950558114",
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                Margin = 0
-            });
-
-            return webView;
-        }
 
         protected override bool OnBackButtonPressed()
         {
@@ -208,26 +242,23 @@ namespace TuEnvio.Pages
                 WebView.GoBack();
                 return true;
             }
-            else {
+            else
+            {
                 return base.OnBackButtonPressed();
             }
         }
 
-        public static void AdsLoaded(double height) {
+        public static async void AdsLoaded(double height)
+        {
             MainTab tabbedPage = App.HostApp.MainPage as MainTab;
             tabbedPage.AdsHeight = height + 50;
-            tabbedPage.RefreshWebViewSize();
+            await tabbedPage.DoActionAsync(3);
         }
 
-        public void RefreshWebViewSize()
+        public void UpdateWebViewSize(ContentPage page)
         {
-            int i = 0;
-            foreach (ContentPage page in Children)
-            {
-                MyCustomWebView webview = ((page.Content as AbsoluteLayout).Children[0] as StackLayout).Children[0] as MyCustomWebView;
-                webview.AdsHeight = AdsHeight;
-                i++;
-            }
+            MyCustomWebView webview = ((page.Content as AbsoluteLayout).Children[0] as StackLayout).Children[0] as MyCustomWebView;
+            webview.AdsHeight = AdsHeight;
         }
 
     }
