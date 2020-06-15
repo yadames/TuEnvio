@@ -13,38 +13,42 @@
   <!--Pages can be added as references or inline-->
     <ContentPage Title="CarlosIII">
         <AbsoluteLayout>
-            <StackLayout >
+            <StackLayout Orientation="Vertical">
                 <controls:MyCustomWebView Source="https://www.tuenvio.cu/carlos3/" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                <controls:AdmobControl VerticalOptions="EndAndExpand" AdUnitId="ca-app-pub-2807998494224675/5950558114" HorizontalOptions="FillAndExpand" Margin="0"/>
             </StackLayout>
-            <Button Text="{x:Static utils:MaterialIcons.Menu}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.95,60,60" Style="{StaticResource floatingButton}" Clicked="menu_Clicked"/>
-            <views:FloatingActionButton AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.80" WidthRequest="300"/>
+            <Button Text="{x:Static utils:MaterialIcons.Menu}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.85,60,60" Style="{StaticResource floatingButton}" Clicked="menu_Clicked"/>
+            <views:FloatingActionButton AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.70" WidthRequest="300"/>
         </AbsoluteLayout>
     </ContentPage>
     <ContentPage Title="4Caminos">
         <AbsoluteLayout>
             <StackLayout >
                 <controls:MyCustomWebView Source="https://www.tuenvio.cu/4caminos/" />
+                <controls:AdmobControl VerticalOptions="EndAndExpand" AdUnitId="ca-app-pub-2807998494224675/5950558114" HorizontalOptions="FillAndExpand" Margin="0"/>
             </StackLayout>
-            <Button Text="{x:Static utils:MaterialIcons.Menu}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.95,60,60" Style="{StaticResource floatingButton}" Clicked="menu_Clicked"/>
-            <views:FloatingActionButton AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.80" WidthRequest="300"/>
+            <Button Text="{x:Static utils:MaterialIcons.Menu}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.85,60,60" Style="{StaticResource floatingButton}" Clicked="menu_Clicked"/>
+            <views:FloatingActionButton AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.70" WidthRequest="300"/>
         </AbsoluteLayout>
     </ContentPage>
     <ContentPage Title="Pedregal" >
         <AbsoluteLayout>
             <StackLayout >
                 <controls:MyCustomWebView Source="https://www.tuenvio.cu/tvpedregal/"/>
+                <controls:AdmobControl VerticalOptions="EndAndExpand" AdUnitId="ca-app-pub-2807998494224675/5950558114" HorizontalOptions="FillAndExpand" Margin="0"/>
             </StackLayout>
-            <Button Text="{x:Static utils:MaterialIcons.Menu}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.95,60,60" Style="{StaticResource floatingButton}" Clicked="menu_Clicked"/>
-            <views:FloatingActionButton AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.80" WidthRequest="300"/>
+            <Button Text="{x:Static utils:MaterialIcons.Menu}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.85,60,60" Style="{StaticResource floatingButton}" Clicked="menu_Clicked"/>
+            <views:FloatingActionButton AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.70" WidthRequest="300"/>
         </AbsoluteLayout>
     </ContentPage>
     <ContentPage Title="La Típica" >
         <AbsoluteLayout>
             <StackLayout >
                 <controls:MyCustomWebView Source="https://www.tuenvio.cu/tipicaboyeros/"/>
+                <controls:AdmobControl VerticalOptions="EndAndExpand" AdUnitId="ca-app-pub-2807998494224675/5950558114" HorizontalOptions="FillAndExpand" Margin="0"/>
             </StackLayout>
-            <Button Text="{x:Static utils:MaterialIcons.Menu}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.95,60,60" Style="{StaticResource floatingButton}" Clicked="menu_Clicked"/>
-            <views:FloatingActionButton AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.80" WidthRequest="300"/>
+            <Button Text="{x:Static utils:MaterialIcons.Menu}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.85,60,60" Style="{StaticResource floatingButton}" Clicked="menu_Clicked"/>
+            <views:FloatingActionButton AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.70" WidthRequest="300"/>
         </AbsoluteLayout>
     </ContentPage>
 </TabbedPage>

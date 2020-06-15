@@ -34,5 +34,18 @@ namespace TuEnvio.Views
             MainTab tabbedPage = App.HostApp.MainPage as MainTab;
             tabbedPage.ShareLinkAsync();
         }
+
+        private void refresh_click(object sender, EventArgs e) {
+            MainTab tabbedPage = App.HostApp.MainPage as MainTab;
+            tabbedPage.RefreshAll();
+        }
+
+        private void open_click(object sender, EventArgs e)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                Xamarin.Forms.Device.OpenUri(new Uri("transfermovil://tm_compra_en_linea/action?id_transaccion=N4C-D8875083124933&importe=2.270000&moneda=CUC&numero_proveedor=30072"));
+            });
+        }
     }
 }

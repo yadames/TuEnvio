@@ -5,16 +5,18 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:utils="clr-namespace:TuEnvio.Utils"   
              xmlns:controls="clr-namespace:TuEnvio.Controls"   
-             xmlns:views="clr-namespace:TuEnvio.Views"     
+             xmlns:views="clr-namespace:TuEnvio.Views"
              mc:Ignorable="d"
              x:Class="TuEnvio.Pages.Main">
     <ContentPage.Content>
         <AbsoluteLayout>
-            <StackLayout >
-                <controls:MyCustomWebView x:Name="webview"  Source="https://www.tuenvio.cu/carlos3/"/>
+            <StackLayout Orientation="Vertical">
+                <controls:MyCustomWebView Source="https://www.tuenvio.cu/carlos3/"/>
+                <controls:AdmobControl VerticalOptions="EndAndExpand" AdUnitId="ca-app-pub-2807998494224675/5950558114" HorizontalOptions="FillAndExpand" Margin="0"/>
             </StackLayout>
-            
-            <views:FloatingActionButton AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.85" />
+            <Button Text="{x:Static utils:MaterialIcons.Menu}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.95,60,60" Style="{StaticResource floatingButton}" />
+            <views:FloatingActionButton AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".95,.80" WidthRequest="300"/>
+
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

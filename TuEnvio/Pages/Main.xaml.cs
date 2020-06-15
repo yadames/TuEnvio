@@ -17,26 +17,5 @@ namespace TuEnvio.Pages
         {
             InitializeComponent();
         }
-
-        private async Task<string> GetTitle()
-        {
-            return await webview.EvaluateJavaScriptAsync("$(document).find('title').text();");
-        }
-
-        private void refresh_Clicked(object sender, EventArgs e)
-        {
-            webview.WidthRequest = UtilsXF.GetScreenWidth();
-            webview.HeightRequest = UtilsXF.GetScreenHeight();
-            webview.Reload();
-        }
-
-        private async void share_Clicked(object sender, EventArgs e)
-        {
-            string title = await GetTitle();
-            string[] line = title.Split(new[] { "\\r\\n", "\\r", "\\n" }, StringSplitOptions.None);
-            string formatTitle = UtilsXF.RemoveSpecialCharacters(line[4]).Trim();
-
-            _ = ShareUtils.ShareText(formatTitle, ((UrlWebViewSource)webview.Source).Url);
-        }
     }
 }
