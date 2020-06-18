@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:utils="clr-namespace:TuEnvio.Utils"
+             xmlns:views="clr-namespace:TuEnvio.Views"
+             xmlns:controls="clr-namespace:TuEnvio.Controls"
+             x:Class="TuEnvio.Pages.HomeMaster"
+             Title="Master">
+
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackLayout x:Name="listContent" Orientation="Vertical" Padding="0" Margin="0">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20" BackgroundColor="#D44141">
+                    <Label Text="Listado de tiendas" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1">
+                <BoxView HeightRequest="1" BackgroundColor="#D44141"/>
+                <controls:CustomFrame  x:Name="frame" BackgroundColor="#F1FFFFFF" CornerRadius="3" BorderColor="White">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" WidthRequest="200">
+                        <!--<StackLayout Orientation="Horizontal">
+                            <Entry x:Name="search_entry" Placeholder="Buscar" HorizontalOptions="FillAndExpand" Visual="Material"></Entry>
+                            <Button x:Name="search_btn" Text="{x:Static utils:MaterialIcons.SearchWeb}" Style="{StaticResource optionsButton}"/>
+                        </StackLayout>
+                        -->
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                            <Button x:Name="share_btn" Text="{x:Static utils:MaterialIcons.Share}" Style="{StaticResource optionsButton}" HorizontalOptions="Center"/>
+                            <Label Text="Compartir" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Default"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                            <Button x:Name="refresh_btn" Text="{x:Static utils:MaterialIcons.Refresh}" Style="{StaticResource optionsButton}" HorizontalOptions="Center"/>
+                            <Label Text="Refrescar todo" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Default"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                            <Button x:Name="help_btn" Text="{x:Static utils:MaterialIcons.Help}" Style="{StaticResource optionsButton}" HorizontalOptions="Center"/>
+                            <Label Text="Help" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Default"/>
+                        </StackLayout>
+                    </StackLayout>
+                </controls:CustomFrame>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+</ContentPage>

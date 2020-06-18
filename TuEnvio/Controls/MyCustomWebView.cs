@@ -19,10 +19,11 @@ namespace TuEnvio.Controls
 
         protected override async void OnPropertyChanged(string propertyName)
         {
-            if (propertyName.Equals("Source")) {
-                WidthRequest = UtilsXF.GetScreenWidth();
-                HeightRequest = UtilsXF.GetScreenHeight() - AdsHeight;
-            }
+            //if (propertyName.Equals("Source"))
+            //{
+            //    WidthRequest = UtilsXF.GetScreenWidth();
+            //    HeightRequest = UtilsXF.GetScreenHeight() - AdsHeight;
+            //}
         }
     }
 }

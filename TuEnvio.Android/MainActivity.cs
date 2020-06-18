@@ -8,6 +8,8 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Android.Gms.Ads;
+using Plugin.CurrentActivity;
+using Xamarin.Forms.Material;
 
 namespace TuEnvio.Droid
 {
@@ -31,6 +33,10 @@ namespace TuEnvio.Droid
             MobileAds.Initialize(ApplicationContext, "ca-app-pub-2807998494224675~5819530323");
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            global::Xamarin.Forms.FormsMaterial.Init(this, savedInstanceState);
+
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
+
             LoadApplication(new App());
 
             manageLink(Intent);

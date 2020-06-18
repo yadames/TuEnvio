@@ -614,7 +614,7 @@ namespace TuEnvio.Utils
 		public const string CloudLock = "\u000f021c";
 		public const string CloudLockOutline = "\u000f021d";
 		public const string RobotMowerOutline = "\u000f021e";
-		public const string ShareAll = "\u000f021f";
+		public const string ShareAll = "\u021f";
 		public const string AlarmMultiple = "\uf022";
 		public const string ShareAllOutline = "\u000f0220";
 		public const string GoogleCloud = "\u000f0221";

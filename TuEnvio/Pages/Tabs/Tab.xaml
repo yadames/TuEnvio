@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:TuEnvio.Controls"
+             xmlns:views="clr-namespace:TuEnvio.Views"
+             xmlns:utils="clr-namespace:TuEnvio.Utils"   
+             mc:Ignorable="d"
+             x:Class="TuEnvio.Pages.Tab">
+    <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+        <Label Text="No hay tiendas seleccionadas" FontSize="Medium" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+        <Label Text="Despliegue el menú lateral izquierdo y seleccione las tiendas que desee visualizar." WidthRequest="250" HorizontalTextAlignment="Center" FontSize="Default" TextColor="White"/>
+    </StackLayout>
+</ContentPage>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Gms.Ads;
@@ -25,20 +25,20 @@ namespace TuEnvio.Droid.Renderers
         {
         }
 
-        private int GetSmartBannerDpHeight()
-        {
-            var dpHeight = Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density;
+        //private int GetSmartBannerDpHeight()
+        //{
+        //    var dpHeight = Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density;
 
-            if (dpHeight <= 400)
-            {
-                return 40;
-            }
-            if (dpHeight <= 720)
-            {
-                return 62;
-            }
-            return 102;
-        }
+        //    if (dpHeight <= 400)
+        //    {
+        //        return 40;
+        //    }
+        //    if (dpHeight <= 720)
+        //    {
+        //        return 62;
+        //    }
+        //    return 102;
+        //}
 
         protected override void OnElementChanged(ElementChangedEventArgs<AdmobControl> e)
         {
@@ -55,11 +55,9 @@ namespace TuEnvio.Droid.Renderers
                 var requestbuilder = new AdRequest.Builder();
 
                 adView.LoadAd(requestbuilder.Build());
-                var newHeight = GetSmartBannerDpHeight();
+                //var newHeight = ;
 
-                e.NewElement.HeightRequest = newHeight;
-                MainTab.AdsLoaded(newHeight);
-
+                e.NewElement.HeightRequest = 90;
                 SetNativeControl(adView);
             }
         }

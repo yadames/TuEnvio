@@ -21,5 +21,28 @@
             <Setter Property="WidthRequest" Value="60"/>
             <Setter Property="HeightRequest" Value="60"/>
         </Style>
+
+        <Style x:Key="optionsButton" TargetType="Button">
+            <Setter Property="FontFamily" Value="{StaticResource MaterialFontFamily}"/>
+            <Setter Property="FontSize" Value="36"/>
+            <Setter Property="TextColor" Value="#D44141"/>
+            <Setter Property="CornerRadius" Value="40"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="WidthRequest" Value="50"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Visual" Value="Default"/>
+        </Style>
+
+        <Style TargetType="Entry">
+            <Setter Property="FontSize" Value="Default"/>
+            <Setter Property="PlaceholderColor" Value="#848484"/>
+            <Setter Property="TextColor" Value="#D44141"/>
+        </Style>
+
+        <Style TargetType="CheckBox">
+            <Setter Property="Color" Value="#D44141"/>
+        </Style>
     </Application.Resources>
 </Application>

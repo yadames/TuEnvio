@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TuEnvio.Model;
 
 namespace TuEnvio.Utils
 {
@@ -40,7 +41,27 @@ namespace TuEnvio.Utils
             return height;
         }
 
+        public static List<Tienda> StringToTiendas(string tiendasConf)
+        {
+            List<Tienda> listado = new List<Tienda>();
+            string[] tiendas = tiendasConf.Split('%');
+            foreach (string tienda in tiendas)
+            {
+                string[] conf = tienda.Split('|');
+                listado.Add(new Tienda { Nombre = conf[0], Provincia = conf[1], URL = conf[2], IsEnable = Boolean.Parse(conf[3]), CanSearch = Boolean.Parse(conf[4]) });
+            }
 
+            return listado;
+        }
+
+        public static double[] GetPointOfFloatingButton() {
+            double width = GetScreenWidth();
+            double height = GetScreenHeight();
+
+            double[] point = { width - 90, height - 180 };
+
+            return point;
+        }
 
         public static string RemoveSpecialCharacters(this string str)
         {

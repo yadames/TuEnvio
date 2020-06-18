@@ -1,5 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using TuEnvio.Model;
 using TuEnvio.Pages;
+using TuEnvio.Utils;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,12 +16,18 @@ namespace TuEnvio
     {
         public static App HostApp { get; private set; }
 
+        public AppModel AppModel {  get; set; }
+
         public App()
         {
             HostApp = this;
             InitializeComponent();
 
-            MainPage = new MainTab();
+            AppModel = new AppModel();
+
+            MainPage = new Home();
+
+            Log.Track(Const.INIT_APP);
         }
 
         protected override void OnStart()
@@ -29,9 +42,14 @@ namespace TuEnvio
         {
         }
 
+        public HomeDetails GetRootPage() 
+        {
+            return ((HostApp.MainPage as MasterDetailPage).Detail as NavigationPage).RootPage as HomeDetails; 
+        }
+
         public static void ManageLink(string url) 
         {
-            MainTab tabbedPage = HostApp.MainPage as MainTab;
+            HomeDetails tabbedPage = App.HostApp.GetRootPage();
             tabbedPage.OpenUrl(url);
         }
     }

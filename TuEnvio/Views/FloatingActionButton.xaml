@@ -7,24 +7,27 @@
              xmlns:controls="clr-namespace:TuEnvio.Controls"
              mc:Ignorable="d"
              x:Class="TuEnvio.Views.FloatingActionButton"
-             IsVisible="False"
              Visual="Material">
     <ContentView.Content>
-        <controls:CustomFrame  x:Name="frame" BackgroundColor="#F4FFFFFF" CornerRadius="10" WidthRequest="200" BorderColor="DarkGray">
-            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" WidthRequest="200">
+        <controls:CustomFrame  x:Name="frame" BackgroundColor="#F1FFFFFF" CornerRadius="3" BorderColor="White">
+            <!--<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" WidthRequest="200">
                 <StackLayout Orientation="Horizontal">
                     <Entry x:Name="search_entry" Placeholder="Buscar" HorizontalOptions="FillAndExpand" Visual="Material"></Entry>
-                    <Button  Text="{x:Static utils:MaterialIcons.SearchWeb}" Style="{StaticResource floatingButton}" Clicked="search_click"/>
+                    <Button  Text="{x:Static utils:MaterialIcons.SearchWeb}" Style="{StaticResource optionsButton}" Clicked="search_click"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Compartir" HorizontalOptions="EndAndExpand" VerticalOptions="Center" FontSize="Medium"/>
-                    <Button  Text="{x:Static utils:MaterialIcons.Share}" Style="{StaticResource floatingButton}" Clicked="share_click" HorizontalOptions="End"/>
+                    <Label Text="Compartir" HorizontalOptions="EndAndExpand" VerticalOptions="Center" FontSize="Default"/>
+                    <Button  Text="{x:Static utils:MaterialIcons.Share}" Style="{StaticResource optionsButton}" Clicked="share_click" HorizontalOptions="End"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Refrescar todo" HorizontalOptions="EndAndExpand" VerticalOptions="Center" FontSize="Medium"/>
-                    <Button  Text="{x:Static utils:MaterialIcons.Refresh}" Style="{StaticResource floatingButton}" Clicked="refresh_click" HorizontalOptions="End"/>
+                    <Label Text="Refrescar todo" HorizontalOptions="EndAndExpand" VerticalOptions="Center" FontSize="Default"/>
+                    <Button  Text="{x:Static utils:MaterialIcons.Refresh}" Style="{StaticResource optionsButton}" Clicked="refresh_click" HorizontalOptions="End"/>
                 </StackLayout>
-            </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Help" HorizontalOptions="EndAndExpand" VerticalOptions="Center" FontSize="Default"/>
+                    <Button  Text="{x:Static utils:MaterialIcons.Help}" Style="{StaticResource optionsButton}" Clicked="help_click" HorizontalOptions="End"/>
+                </StackLayout>
+            </StackLayout>-->
         </controls:CustomFrame>
     </ContentView.Content>
 </ContentView>
