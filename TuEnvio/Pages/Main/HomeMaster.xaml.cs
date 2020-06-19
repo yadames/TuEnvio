@@ -48,31 +48,15 @@ namespace TuEnvio.Pages
                 BackgroundColor = Color.FromHex("D44141"),
                 TextColor = Color.White,
                 Margin = new Thickness(20, 5),
-                Text = "GUARDAR CAMBIOS"
+                Text = "GUARDAR CAMBIOS",
+                Padding = 0,
+                HeightRequest = 30,
+                BorderColor = Color.Black
             };
-
-            StackLayout labelLayout = new StackLayout()
-            {
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.FillAndExpand,
-                Padding = 20,
-                BackgroundColor = Color.FromHex("#D44141"),
-                Children = {
-                    new Label(){
-                        Text = "Listado de tiendas",
-                        FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
-                        FontAttributes = FontAttributes.Bold,
-                        HorizontalOptions = LayoutOptions.Center,
-                        TextColor = Color.White
-                    }
-                }
-            };
-
+            
             ViewModel = App.HostApp.AppModel.Tiendas;
 
             BindingContext = ViewModel;
-
-            listContent.Children.Clear();
 
             // Create the ListView.
             ListView listView = new ListView
@@ -127,7 +111,6 @@ namespace TuEnvio.Pages
                 })
             };
 
-            listContent.Children.Add(labelLayout);
             listContent.Children.Add(listView);
             listContent.Children.Add(Update);
 

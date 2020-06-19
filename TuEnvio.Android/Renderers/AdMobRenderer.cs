@@ -25,20 +25,14 @@ namespace TuEnvio.Droid.Renderers
         {
         }
 
-        //private int GetSmartBannerDpHeight()
-        //{
-        //    var dpHeight = Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density;
+        private int GetSmartBannerDpHeight()
+        {
+            var dpHeight = Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density;
 
-        //    if (dpHeight <= 400)
-        //    {
-        //        return 40;
-        //    }
-        //    if (dpHeight <= 720)
-        //    {
-        //        return 62;
-        //    }
-        //    return 102;
-        //}
+            if (dpHeight <= 400) return 32;
+            if (dpHeight <= 720) return 50;
+            return 90;
+        }
 
         protected override void OnElementChanged(ElementChangedEventArgs<AdmobControl> e)
         {
@@ -49,15 +43,16 @@ namespace TuEnvio.Droid.Renderers
                 var adView = new AdView(Context)
                 {
                     AdSize = AdSize.SmartBanner,
+                    //AdUnitId = "ca-app-pub-3940256099942544/6300978111"
                     AdUnitId = Element.AdUnitId
+
                 };
 
                 var requestbuilder = new AdRequest.Builder();
 
                 adView.LoadAd(requestbuilder.Build());
-                //var newHeight = ;
 
-                e.NewElement.HeightRequest = 90;
+                e.NewElement.HeightRequest = GetSmartBannerDpHeight();
                 SetNativeControl(adView);
             }
         }

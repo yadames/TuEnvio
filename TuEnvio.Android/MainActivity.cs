@@ -10,17 +10,15 @@ using Android.OS;
 using Android.Gms.Ads;
 using Plugin.CurrentActivity;
 using Xamarin.Forms.Material;
+using TuEnvio.Utils;
 
 namespace TuEnvio.Droid
 {
     [Activity(Label = "TuEnvio", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     [IntentFilter(
         new[] { Intent.ActionView },
-        DataScheme = "http",
-        Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable })]
-    [IntentFilter(
-        new[] { Intent.ActionView },
         DataScheme = "https",
+        DataHost = "www.tuenvio.cu",
         Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable })]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {

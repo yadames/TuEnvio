@@ -109,7 +109,6 @@ namespace TuEnvio.Pages
                     VerticalOptions = LayoutOptions.FillAndExpand,
                     HorizontalOptions = LayoutOptions.FillAndExpand,
                     Margin = 0,
-                    HeightRequest = 90
                 };
                 currentGrid.Children.Add(admob, 0, 1);
             }
@@ -133,7 +132,7 @@ namespace TuEnvio.Pages
         public async Task DoActionAsync(int action, string query = null)
         {
             int i = 0;
-            int timeToDelay = 500;
+            int timeToDelay = 100;
             List<Tienda> tiendas = App.HostApp.AppModel.GetSelected();
             if (tiendas.Any())
             {

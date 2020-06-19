@@ -10,7 +10,7 @@
     <pages:HomeMaster x:Name="MasterPage" />
   </MasterDetailPage.Master>
   <MasterDetailPage.Detail>
-        <NavigationPage BackgroundColor="#D44141">
+        <NavigationPage BackgroundColor="Black">
         <x:Arguments>
             <pages:HomeDetails x:Name="DetailsPage" />
         </x:Arguments>

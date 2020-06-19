@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="2" android:versionName="1.1" package="com.cubanapps.TuEnvio" android:installLocation="auto">
-	<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="28" />
+	<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="29" />
 	<application android:label="TuEnvio" android:icon="@mipmap/ic_launcher">
 		<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-2807998494224675~5819530323" />
 	</application>

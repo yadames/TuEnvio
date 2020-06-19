@@ -14,21 +14,21 @@ using TuEnvio.Droid.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-//[assembly: ExportRenderer(typeof(MyCustomWebView), typeof(MyCustomWebViewRenderer))]
+[assembly: ExportRenderer(typeof(MyCustomWebView), typeof(MyCustomWebViewRenderer))]
 
 namespace TuEnvio.Droid.Renderers
 {
-    //public class MyCustomWebViewRenderer : WebViewRenderer
-    //{
-    //    protected override void OnElementChanged(ElementChangedEventArgs<WebView> e)
-    //    {
-    //        base.OnElementChanged(e);
+    public class MyCustomWebViewRenderer : WebViewRenderer
+    {
+        protected override void OnElementChanged(ElementChangedEventArgs<WebView> e)
+        {
+            base.OnElementChanged(e);
 
-    //        if (e.NewElement != null)
-    //        {
-    //            //Control.Settings.JavaScriptEnabled = true;
-    //            //Control.Settings.CacheMode = Android.Webkit.CacheModes.Normal;
-    //        }
-    //    }
-    //}
+            if (e.NewElement != null)
+            {
+                Control.Settings.JavaScriptEnabled = true;
+                Control.Settings.CacheMode = Android.Webkit.CacheModes.Normal;
+            }
+        }
+    }
 }

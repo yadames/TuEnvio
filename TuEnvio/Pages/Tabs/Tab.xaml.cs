@@ -29,16 +29,20 @@ namespace TuEnvio.Pages
             {
                 Source = tienda.URL,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.FillAndExpand
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                Margin = 0
             };
-            
+
             Grid grid = new Grid
             {
                 RowDefinitions =
                 {
-                    new RowDefinition { Height = new GridLength (1, GridUnitType.Star) },
-                    new RowDefinition { Height = GridLength.Auto}
-                }
+                    new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
+                    new RowDefinition { Height = GridLength.Auto }
+                },
+                RowSpacing = 0,
+                ColumnSpacing = 0,
+                Padding = 0, Margin = 0
             };
 
             grid.Children.Add(webView, 0, 0);
